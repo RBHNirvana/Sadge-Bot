@@ -14,7 +14,7 @@ sad_words = [
 
 starter_encouragements = [
     "Don't be.... Everything will get better",
-    "Sometimes shit happens. Don't let it get to you and keep pushin on",
+    "Sometimes shit happens. Don't let it get to you and keep pushing on",
 ]
 
 if "responding" not in db.keys():
@@ -85,15 +85,7 @@ async def on_message(message):
         encouraging_message = msg.split("!add ", 1)[1]
         update_encouragements(encouraging_message)
         await message.channel.send("New encouraging message added.")
-""""
-    if msg.startswith("!del"):
-        encouragements = []
-        if "encouragements" in db.keys():
-            index = int(msg.split("!del", 1)[1])
-            delete_encouragment(index)
-            encouragements = db["encouragements"]
-       await message.channel.send(encouragements)
-""""
+
     if msg.startswith("!list"):
         encouragements = []
         if "encouragements" in db.keys():
@@ -109,6 +101,15 @@ async def on_message(message):
         else:
             db["responding"] = False
             await message.channel.send("Responding is off.")
+    """"
+    if msg.startswith("!del"):
+        encouragements = []
+        if "encouragements" in db.keys():
+            index = int(msg.split("!del", 1)[1])
+            delete_encouragment(index)
+            encouragements = db["encouragements"]
+       await message.channel.send(encouragements)
+    """
 
 
 keep_alive()
