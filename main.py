@@ -9,8 +9,7 @@ from keep_alive import keep_alive
 client = discord.Client()
 
 sad_words = [
-    "sad", "depressed", "unhappy", "miserable", "angry", "depressing",
-    "breuss", "sadge"
+    "sad", "depressed", "unhappy", "miserable", "angry", "depressing", "sadge"
 ]
 
 starter_encouragements = [
@@ -86,15 +85,15 @@ async def on_message(message):
         encouraging_message = msg.split("!add ", 1)[1]
         update_encouragements(encouraging_message)
         await message.channel.send("New encouraging message added.")
-
-    #if msg.startswith("!del"):
-    #    encouragements = []
-    #    if "encouragements" in db.keys():
-    #        index = int(msg.split("!del", 1)[1])
-    #        delete_encouragment(index)
-    #        encouragements = db["encouragements"]
-    #   await message.channel.send(encouragements)
-
+""""
+    if msg.startswith("!del"):
+        encouragements = []
+        if "encouragements" in db.keys():
+            index = int(msg.split("!del", 1)[1])
+            delete_encouragment(index)
+            encouragements = db["encouragements"]
+       await message.channel.send(encouragements)
+""""
     if msg.startswith("!list"):
         encouragements = []
         if "encouragements" in db.keys():
