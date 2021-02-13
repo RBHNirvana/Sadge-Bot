@@ -14,7 +14,7 @@ sad_words = [
 
 starter_encouragements = [
     "Don't be.... Everything will get better",
-    "Sometimes shit happens. Don't let it get to you and keep pushing on",
+    "Sometimes stuff happens. Don't let it get to you and keep pushing on",
 ]
 
 if "responding" not in db.keys():
