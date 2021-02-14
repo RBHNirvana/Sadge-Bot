@@ -26,14 +26,14 @@ if "responding" not in db.keys():
 def get_quote():
     response = requests.get("https://zenquotes.io/api/random")
     json_data = json.loads(response.text)
-    quote = json_data[0]['q'] + " -" + json_data[0]['a']
+    quote = json_data[0]['q'] + " - " + json_data[0]['a']
     return (quote)
 
 
 def get_daily_quote():
     response = requests.get("https://zenquotes.io/api/today")
     json_data = json.loads(response.text)
-    quote = json_data[0]['q'] + " -" + json_data[0]['a']
+    quote = json_data[0]['q'] + " - " + json_data[0]['a']
     return (quote)
 
 
@@ -62,7 +62,7 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user:
         return
-        
+
 
     msg = message.content
 
@@ -109,16 +109,15 @@ async def on_message(message):
             db["responding"] = False
             await message.channel.send("Responding is off.")
 
-    """"
+    
     if msg.startswith("!del"):
         encouragements = []
         if "encouragements" in db.keys():
-            index = int(msg.split("!del", 1)[1])
+            index = int(msg.split("!del ", 1)[1])
             delete_encouragment(index)
             encouragements = db["encouragements"]
-       await message.channel.send(encouragements)
-    """
-
-
+        await message.channel.send(encouragements)
+    
+    
 keep_alive()
 client.run(os.getenv('TOKEN'))
